@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+</head>
+
+<body>
+  <div class="container">
+    <h1>My Blog</h1>
+    <a id="newjokeBtn" href="/new">New joke</a>
+    <ul id="jokesList">
+      <% jokes.forEach(joke=> { %>
+        <li>
+          <h2>
+            <%=joke.title%>
+          </h2>
+          <small>
+            <%=joke.date %>
+          </small>
+          <p>
+            <%=joke.content%>
+          </p>
+          <small>By: <%=joke.author%> </small>
+          <a class="edit" href="/edit/<%= joke.id %>">Edit</a>
+          <a class="delete" href="/api/jokes/delete/<%= joke.id %>">Delete</a>
+        </li>
+        <% }); %>
+    </ul>
+  </div>
+
+</body>
+
+</html>
